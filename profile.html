@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내 프로필 — PetBuddy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+  <body class="page-profile">
+    <header class="site-header site-header--auth">
+      <a href="index.html" class="brand" aria-label="PetBuddy 홈">
+        <span class="brand__mark" aria-hidden="true">
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+        </span>
+        <span class="brand__name">PetBuddy</span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        aria-label="메뉴 열기"
+      >
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="nav-panel" id="primary-nav">
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="walk.html" class="nav__link">지금 산책</a>
+          <a href="matching.html" class="nav__link">매칭 찾기</a>
+          <a href="community.html" class="nav__link">커뮤니티</a>
+          <a href="profile.html" class="nav__link is-active" aria-current="page"
+            >내 프로필</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="profile-layout">
+      <aside class="profile-sidebar" aria-labelledby="profile-user-name">
+        <div class="profile-sidebar__card">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" aria-hidden="true">민</div>
+          </div>
+          <h1 id="profile-user-name" class="profile-name">김민준</h1>
+          <p class="profile-meta">서울 서초구 · 가입 3개월</p>
+          <div class="profile-manner">
+            <span class="profile-manner__ico" aria-hidden="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 3v4M12 17v4M4 12h4M16 12h4"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  opacity="0.85"
+                />
+                <path
+                  d="M12 8c3.5 0 5 2 5 4.5S15.5 17 12 17 7 14.5 7 12.5 8.5 8 12 8z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="rgba(40,167,121,0.08)"
+                />
+              </svg>
+            </span>
+            매너온도 36.8°
+          </div>
+          <div class="profile-stats">
+            <div class="profile-stat">
+              <span class="profile-stat__value">24</span>
+              <span class="profile-stat__label">산책 횟수</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__value">8</span>
+              <span class="profile-stat__label">참여 모임</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__value">12</span>
+              <span class="profile-stat__label">받은 후기</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="profile-nav" aria-label="프로필 메뉴">
+          <ul class="profile-nav__list">
+            <li class="profile-nav__item">
+              <a
+                href="profile.html"
+                class="profile-nav__link is-active"
+                aria-current="page"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <ellipse cx="8.5" cy="9" rx="2.2" ry="2.5" opacity="0.92" />
+                  <ellipse cx="15.5" cy="9" rx="2.2" ry="2.5" opacity="0.92" />
+                  <ellipse cx="6" cy="14.5" rx="1.7" ry="2" opacity="0.92" />
+                  <ellipse cx="12" cy="13" rx="2" ry="2.3" opacity="0.92" />
+                  <ellipse cx="18" cy="14.5" rx="1.7" ry="2" opacity="0.92" />
+                  <ellipse cx="12" cy="19.5" rx="3" ry="2.4" opacity="0.92" />
+                </svg>
+                펫 프로필
+              </a>
+            </li>
+            <li class="profile-nav__item">
+              <a href="#" class="profile-nav__link">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <rect x="3.5" y="4.5" width="17" height="16" rx="2" />
+                  <path d="M3.5 9.5h17M8 3v3M16 3v3" stroke-linecap="round" />
+                </svg>
+                내 일정
+              </a>
+            </li>
+            <li class="profile-nav__item">
+              <a href="#" class="profile-nav__link">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 18V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-5.2L8 21v-3H7a2 2 0 0 1-2-2z"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M9 11h6M9 14h4" stroke-linecap="round" />
+                </svg>
+                채팅
+              </a>
+            </li>
+            <li class="profile-nav__item">
+              <a href="#" class="profile-nav__link">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="7" r="3.2" />
+                  <path
+                    d="M6.5 19c0-3.2 3-5.5 5.5-5.5S17.5 15.8 17.5 19"
+                    stroke-linecap="round"
+                  />
+                  <path d="M16 11.5h2.5V14" stroke-linecap="round" />
+                </svg>
+                산책 기록
+              </a>
+            </li>
+            <li class="profile-nav__item">
+              <a href="#" class="profile-nav__link">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L12 14.9 7.8 16.5l.8-4.7-3.4-3.3 4.7-.7L12 3.5z"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                받은 후기
+              </a>
+            </li>
+          </ul>
+          <hr class="profile-nav__rule" />
+          <ul class="profile-nav__list">
+            <li class="profile-nav__item">
+              <a href="#" class="profile-nav__link">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 5V3M12 21v-2M5 12H3M21 12h-2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                설정
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="profile-main">
+        <section class="profile-section" aria-labelledby="sec-pets">
+          <div class="profile-section__head">
+            <h2 id="sec-pets" class="profile-section__title">내 반려동물</h2>
+            <button type="button" class="profile-edit">편집</button>
+          </div>
+          <div class="profile-pet-cards">
+            <article class="profile-pet-card">
+              <div class="profile-pet-card__top">
+                <div class="profile-pet-avatar" aria-hidden="true">🐕</div>
+                <div class="profile-pet-card__title-block">
+                  <h3 class="profile-pet-name">초코</h3>
+                  <p class="profile-pet-sub">골든리트리버 · 수컷 · 3살</p>
+                </div>
+              </div>
+              <div class="profile-pet-tags">
+                <span class="profile-pet-tag">온순함</span>
+                <span class="profile-pet-tag">사교적</span>
+                <span class="profile-pet-tag">소형견 친화적</span>
+                <span class="profile-pet-tag">저녁 산책 선호</span>
+              </div>
+              <div class="profile-pet-grid">
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">크기</span>
+                  <span class="profile-pet-field__value">중형 (22kg)</span>
+                </div>
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">중성화</span>
+                  <span class="profile-pet-field__value">완료</span>
+                </div>
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">접종</span>
+                  <span class="profile-pet-field__value">완료</span>
+                </div>
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">산책 속도</span>
+                  <span class="profile-pet-field__value">보통</span>
+                </div>
+              </div>
+            </article>
+            <article class="profile-pet-card">
+              <div class="profile-pet-card__top">
+                <div
+                  class="profile-pet-avatar profile-pet-avatar--soft"
+                  aria-hidden="true"
+                >
+                  🐩
+                </div>
+                <div class="profile-pet-card__title-block">
+                  <h3 class="profile-pet-name">두부</h3>
+                  <p class="profile-pet-sub">말티즈 · 암컷 · 2살</p>
+                </div>
+              </div>
+              <div class="profile-pet-tags">
+                <span class="profile-pet-tag">호기심 많음</span>
+                <span class="profile-pet-tag">애교</span>
+                <span class="profile-pet-tag">단거리 선호</span>
+                <span class="profile-pet-tag">아침 활발</span>
+              </div>
+              <div class="profile-pet-grid">
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">크기</span>
+                  <span class="profile-pet-field__value">소형 (4kg)</span>
+                </div>
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">중성화</span>
+                  <span class="profile-pet-field__value">완료</span>
+                </div>
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">접종</span>
+                  <span class="profile-pet-field__value">완료</span>
+                </div>
+                <div class="profile-pet-field">
+                  <span class="profile-pet-field__label">산책 속도</span>
+                  <span class="profile-pet-field__value">느림</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button type="button" class="profile-add-pet">
+            + 반려동물 추가하기
+          </button>
+        </section>
+
+        <section class="profile-section" aria-labelledby="sec-traits">
+          <div class="profile-section__head">
+            <h2 id="sec-traits" class="profile-section__title">보호자 성향</h2>
+            <button type="button" class="profile-edit">편집</button>
+          </div>
+          <div class="profile-trait-panel">
+            <div class="profile-trait-grid">
+              <div class="profile-pet-field">
+                <span class="profile-pet-field__label">산책 스타일</span>
+                <span class="profile-pet-field__value">조용히 걷기 선호</span>
+              </div>
+              <div class="profile-pet-field">
+                <span class="profile-pet-field__label">선호 시간대</span>
+                <span class="profile-pet-field__value">저녁 6~9시</span>
+              </div>
+              <div class="profile-pet-field">
+                <span class="profile-pet-field__label">선호 인원</span>
+                <span class="profile-pet-field__value">소규모 (2~4명)</span>
+              </div>
+              <div class="profile-pet-field">
+                <span class="profile-pet-field__label">활동 반경</span>
+                <span class="profile-pet-field__value">2km 이내</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="profile-section" aria-labelledby="sec-reviews">
+          <div class="profile-section__head">
+            <h2 id="sec-reviews" class="profile-section__title">최근 후기</h2>
+            <button type="button" class="profile-edit">전체보기</button>
+          </div>
+          <div class="profile-reviews">
+            <article class="profile-review-card">
+              <div class="profile-review-avatar" aria-hidden="true">윤</div>
+              <div class="profile-review-body">
+                <div class="profile-review-head">
+                  <span class="profile-review-author">윤서진</span>
+                  <span class="profile-review-stars" aria-label="별점 5점"
+                    >★★★★★</span
+                  >
+                </div>
+                <p class="profile-review-text">
+                  시간 약속 잘 지키시고 강아지 교감도 좋아요. 다음에도 같이
+                  산책하고 싶어요!
+                </p>
+              </div>
+            </article>
+            <article class="profile-review-card">
+              <div class="profile-review-avatar" aria-hidden="true">박</div>
+              <div class="profile-review-body">
+                <div class="profile-review-head">
+                  <span class="profile-review-author">박지훈</span>
+                  <span class="profile-review-stars" aria-label="별점 5점"
+                    >★★★★★</span
+                  >
+                </div>
+                <p class="profile-review-text">
+                  예의 바르고 배려 깊으세요. 리드도 짧게 잘 잡아주셔서
+                  안심됐어요.
+                </p>
+              </div>
+            </article>
+            <article class="profile-review-card">
+              <div class="profile-review-avatar" aria-hidden="true">이</div>
+              <div class="profile-review-body">
+                <div class="profile-review-head">
+                  <span class="profile-review-author">이수연</span>
+                  <span class="profile-review-stars" aria-label="별점 4점"
+                    >★★★★☆</span
+                  >
+                </div>
+                <p class="profile-review-text">
+                  첫 만남인데 분위기 편했어요. 코스도 천천히 맞춰 주셔서
+                  좋았습니다.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지금 산책 — PetBuddy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/matching.css" />
+  </head>
+  <body class="page-walk">
+    <header class="site-header site-header--auth">
+      <a href="index.html" class="brand" aria-label="PetBuddy 홈">
+        <span class="brand__mark" aria-hidden="true">
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+        </span>
+        <span class="brand__name">PetBuddy</span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        aria-label="메뉴 열기"
+      >
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="nav-panel" id="primary-nav">
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="walk.html" class="nav__link is-active" aria-current="page"
+            >지금 산책</a
+          >
+          <a href="matching.html" class="nav__link">매칭 찾기</a>
+          <a href="community.html" class="nav__link">커뮤니티</a>
+          <a href="profile.html" class="nav__link">내 프로필</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="match-main">
+      <div class="match-layout">
+        <section class="match-map-pane" aria-label="내 주변 지도">
+          <div class="match-map-stage">
+            <div class="match-map-toolbar">
+              <div class="match-filters" role="group" aria-label="지도 필터">
+                <button type="button" class="match-filter-btn is-active">
+                  전체
+                </button>
+                <button type="button" class="match-filter-btn">산책 중</button>
+                <button type="button" class="match-filter-btn">
+                  모임 예정
+                </button>
+                <button type="button" class="match-filter-btn">
+                  매칭 가능
+                </button>
+              </div>
+              <div class="match-map-toolbar__radius">
+                <label class="visually-hidden" for="match-radius"
+                  >검색 반경</label
+                >
+                <select id="match-radius" class="match-radius">
+                  <option>반경 500m</option>
+                  <option selected>반경 1km</option>
+                  <option>반경 2km</option>
+                  <option>반경 3km</option>
+                </select>
+              </div>
+            </div>
+            <div class="match-map-canvas-wrap">
+              <div class="match-map-canvas" aria-hidden="true">
+                <div class="match-range"></div>
+                <div class="match-pin match-pin--me">나</div>
+                <div
+                  class="match-pin match-pin--green"
+                  style="top: 38%; left: 64%"
+                >
+                  <span class="match-pin__dot" aria-hidden="true"></span>
+                  초코 · 산책중
+                </div>
+                <div class="match-pin match-pin--orange">
+                  <span class="match-pin__dot" aria-hidden="true"></span>
+                  한강 모임 18시
+                </div>
+                <div class="match-pin match-pin--blue">
+                  <span class="match-pin__dot" aria-hidden="true"></span>
+                  구름 · 매칭가능
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="match-list-pane" aria-labelledby="match-list-heading">
+          <h2 id="match-list-heading" class="visually-hidden">
+            주변 산책·모임 목록
+          </h2>
+          <div class="match-tabs" role="tablist" aria-label="목록 종류">
+            <button
+              type="button"
+              role="tab"
+              aria-selected="true"
+              class="match-tab is-active"
+            >
+              모임 목록
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              class="match-tab"
+            >
+              진행중
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              class="match-tab"
+            >
+              매칭 요청
+            </button>
+          </div>
+          <div class="match-card-list">
+            <article class="match-card">
+              <div class="match-card__head">
+                <div
+                  class="match-card__avatar match-card__avatar--a"
+                  aria-hidden="true"
+                >
+                  🍃
+                </div>
+                <div class="match-card__title-row">
+                  <h3 class="match-card__title">한강공원 저녁 산책</h3>
+                  <span class="match-card__badge match-card__badge--soon"
+                    >곧 시작</span
+                  >
+                </div>
+              </div>
+              <p class="match-card__meta">
+                오늘 18:00 · 3/5명 · 여의도 한강공원
+              </p>
+              <div class="match-card__tags">
+                <span class="match-tag">소형견 환영</span>
+                <span class="match-tag">0.8km</span>
+                <span class="match-tag">승인형</span>
+              </div>
+              <button type="button" class="match-card__action">
+                참여 신청
+              </button>
+            </article>
+
+            <article class="match-card">
+              <div class="match-card__head">
+                <div
+                  class="match-card__avatar match-card__avatar--b"
+                  aria-hidden="true"
+                >
+                  🐕
+                </div>
+                <div class="match-card__title-row">
+                  <h3 class="match-card__title">성수동 브런치 산책 모임</h3>
+                  <span class="match-card__badge match-card__badge--walk"
+                    >산책중</span
+                  >
+                </div>
+              </div>
+              <p class="match-card__meta">진행중 · 2/6명 · 성수연방 인근</p>
+              <div class="match-card__tags">
+                <span class="match-tag">중형견</span>
+                <span class="match-tag">1.1km</span>
+                <span class="match-tag">자유 참여</span>
+              </div>
+              <button type="button" class="match-card__action">합류하기</button>
+            </article>
+
+            <article class="match-card">
+              <div class="match-card__head">
+                <div
+                  class="match-card__avatar match-card__avatar--a"
+                  aria-hidden="true"
+                >
+                  ☁️
+                </div>
+                <div class="match-card__title-row">
+                  <h3 class="match-card__title">반포천 라이트 산책단</h3>
+                  <span class="match-card__badge match-card__badge--open"
+                    >참여가능</span
+                  >
+                </div>
+              </div>
+              <p class="match-card__meta">오늘 16:00 · 4/8명 · 반포천 출발</p>
+              <div class="match-card__tags">
+                <span class="match-tag">난이도 낮음</span>
+                <span class="match-tag">0.5km</span>
+              </div>
+              <button type="button" class="match-card__action">
+                참여 신청
+              </button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

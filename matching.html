@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>매칭 찾기 — PetBuddy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/matching-search.css" />
+  </head>
+  <body class="page-matching-search">
+    <header class="site-header site-header--auth">
+      <a href="index.html" class="brand" aria-label="PetBuddy 홈">
+        <span class="brand__mark" aria-hidden="true">
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+        </span>
+        <span class="brand__name">PetBuddy</span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        aria-label="메뉴 열기"
+      >
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="nav-panel" id="primary-nav">
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="walk.html" class="nav__link">지금 산책</a>
+          <a
+            href="matching.html"
+            class="nav__link is-active"
+            aria-current="page"
+            >매칭 찾기</a
+          >
+          <a href="community.html" class="nav__link">커뮤니티</a>
+          <a href="profile.html" class="nav__link">내 프로필</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="matching-page">
+      <aside class="matching-sidebar" aria-labelledby="matching-filter-title">
+        <h2 id="matching-filter-title" class="matching-sidebar__title">
+          조건 설정
+        </h2>
+
+        <div class="matching-field">
+          <div class="matching-field__label">
+            거리
+            <span class="matching-field__value"
+              ><span id="matching-distance-out">2</span>km</span
+            >
+          </div>
+          <div class="matching-range-wrap">
+            <label class="visually-hidden" for="matching-distance"
+              >검색 반경 (km)</label
+            >
+            <input
+              type="range"
+              id="matching-distance"
+              class="matching-range"
+              min="1"
+              max="10"
+              value="2"
+              step="1"
+            />
+          </div>
+        </div>
+
+        <div class="matching-field">
+          <div class="matching-field__label">강아지 크기</div>
+          <div class="matching-chip-group" data-chip-group>
+            <button type="button" class="matching-chip is-active">소형</button>
+            <button type="button" class="matching-chip">중형</button>
+            <button type="button" class="matching-chip">대형</button>
+          </div>
+        </div>
+
+        <div class="matching-field">
+          <div class="matching-field__label">강아지 성향</div>
+          <div class="matching-chip-group" data-chip-group>
+            <button type="button" class="matching-chip is-active">
+              온순함
+            </button>
+            <button type="button" class="matching-chip">활발함</button>
+            <button type="button" class="matching-chip">겁 많음</button>
+            <button type="button" class="matching-chip">사교적</button>
+          </div>
+        </div>
+
+        <div class="matching-field">
+          <div class="matching-field__label">산책 시간대</div>
+          <div class="matching-chip-group" data-chip-group>
+            <button type="button" class="matching-chip">아침</button>
+            <button type="button" class="matching-chip">오후</button>
+            <button type="button" class="matching-chip is-active">저녁</button>
+            <button type="button" class="matching-chip">야간</button>
+          </div>
+        </div>
+
+        <div class="matching-field">
+          <div class="matching-field__label">보호자 성향</div>
+          <div class="matching-chip-group" data-chip-group>
+            <button type="button" class="matching-chip is-active">
+              조용히
+            </button>
+            <button type="button" class="matching-chip">대화 좋아요</button>
+          </div>
+        </div>
+
+        <button type="button" class="matching-refresh">추천 다시 받기</button>
+      </aside>
+
+      <div class="matching-results">
+        <div class="matching-results__toolbar">
+          <h2 class="matching-results__title">
+            추천 매칭 <span class="matching-results__count">8명</span>
+          </h2>
+          <label class="visually-hidden" for="matching-sort">정렬 기준</label>
+          <select id="matching-sort" class="matching-sort">
+            <option selected>매칭점수순</option>
+            <option>거리 가까운 순</option>
+            <option>매너점수순</option>
+          </select>
+        </div>
+
+        <div class="matching-results__list">
+          <article class="mresult-card mresult-card--best">
+            <span class="mresult-card__badge">베스트 매칭</span>
+            <div class="mresult-card__top">
+              <div class="mresult-card__avatar" aria-hidden="true">🐕</div>
+              <div class="mresult-card__headings">
+                <h3 class="mresult-card__name">초코 · 골든리트리버</h3>
+                <div class="mresult-tags">
+                  <span class="mresult-tag">소·중형 무제</span>
+                  <span class="mresult-tag">온순</span>
+                  <span class="mresult-tag">저녁 산책</span>
+                  <span class="mresult-tag">0.3km</span>
+                </div>
+              </div>
+            </div>
+            <ul class="mresult-scores" aria-label="매칭 점수">
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">거리</span>
+                <div class="mresult-meter" role="presentation">
+                  <span class="mresult-meter__fill" style="width: 92%"></span>
+                </div>
+                <span class="mresult-score-pct">92%</span>
+              </li>
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">성향 일치</span>
+                <div class="mresult-meter" role="presentation">
+                  <span class="mresult-meter__fill" style="width: 88%"></span>
+                </div>
+                <span class="mresult-score-pct">88%</span>
+              </li>
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">매너점수</span>
+                <div class="mresult-meter" role="presentation">
+                  <span class="mresult-meter__fill" style="width: 95%"></span>
+                </div>
+                <span class="mresult-score-pct">95%</span>
+              </li>
+            </ul>
+            <div class="mresult-actions">
+              <button type="button" class="mresult-btn mresult-btn--ghost">
+                산책 요청 보내기
+              </button>
+              <button type="button" class="mresult-btn mresult-btn--ghost">
+                모임 같이 보기
+              </button>
+            </div>
+          </article>
+
+          <article class="mresult-card">
+            <div class="mresult-card__top">
+              <div class="mresult-card__avatar" aria-hidden="true">🐩</div>
+              <div class="mresult-card__headings">
+                <h3 class="mresult-card__name">구름 · 비숑</h3>
+                <div class="mresult-tags">
+                  <span class="mresult-tag">소형</span>
+                  <span class="mresult-tag">사교적</span>
+                  <span class="mresult-tag">오후</span>
+                  <span class="mresult-tag">0.8km</span>
+                </div>
+              </div>
+            </div>
+            <ul class="mresult-scores" aria-label="매칭 점수">
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">거리</span>
+                <div class="mresult-meter">
+                  <span class="mresult-meter__fill" style="width: 78%"></span>
+                </div>
+                <span class="mresult-score-pct">78%</span>
+              </li>
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">성향 일치</span>
+                <div class="mresult-meter">
+                  <span class="mresult-meter__fill" style="width: 81%"></span>
+                </div>
+                <span class="mresult-score-pct">81%</span>
+              </li>
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">매너점수</span>
+                <div class="mresult-meter">
+                  <span class="mresult-meter__fill" style="width: 90%"></span>
+                </div>
+                <span class="mresult-score-pct">90%</span>
+              </li>
+            </ul>
+            <div class="mresult-actions">
+              <button type="button" class="mresult-btn mresult-btn--ghost">
+                산책 요청 보내기
+              </button>
+              <button type="button" class="mresult-btn mresult-btn--ghost">
+                모임 같이 보기
+              </button>
+            </div>
+          </article>
+
+          <article class="mresult-card">
+            <div class="mresult-card__top">
+              <div class="mresult-card__avatar" aria-hidden="true">🦮</div>
+              <div class="mresult-card__headings">
+                <h3 class="mresult-card__name">바다 · 레브라도</h3>
+                <div class="mresult-tags">
+                  <span class="mresult-tag">중형 호환</span>
+                  <span class="mresult-tag">활발</span>
+                  <span class="mresult-tag">아침</span>
+                  <span class="mresult-tag">1.1km</span>
+                </div>
+              </div>
+            </div>
+            <ul class="mresult-scores" aria-label="매칭 점수">
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">거리</span>
+                <div class="mresult-meter">
+                  <span class="mresult-meter__fill" style="width: 71%"></span>
+                </div>
+                <span class="mresult-score-pct">71%</span>
+              </li>
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">성향 일치</span>
+                <div class="mresult-meter">
+                  <span class="mresult-meter__fill" style="width: 74%"></span>
+                </div>
+                <span class="mresult-score-pct">74%</span>
+              </li>
+              <li class="mresult-score-row">
+                <span class="mresult-score-label">매너점수</span>
+                <div class="mresult-meter">
+                  <span class="mresult-meter__fill" style="width: 88%"></span>
+                </div>
+                <span class="mresult-score-pct">88%</span>
+              </li>
+            </ul>
+            <div class="mresult-actions">
+              <button type="button" class="mresult-btn mresult-btn--ghost">
+                산책 요청 보내기
+              </button>
+              <button type="button" class="mresult-btn mresult-btn--ghost">
+                모임 같이 보기
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="matching-scroll-hint">
+          <button
+            type="button"
+            class="matching-scroll-hint__btn"
+            aria-label="아래로 더 보기"
+          >
+            ↓
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/matching-search.js" defer></script>
+  </body>
+</html>

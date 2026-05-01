@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공개 모임 — PetBuddy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/community.css" />
+  </head>
+  <body class="page-community">
+    <header class="site-header site-header--auth">
+      <a href="index.html" class="brand" aria-label="PetBuddy 홈">
+        <span class="brand__mark" aria-hidden="true">
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+          <svg
+            class="brand__paw"
+            width="13"
+            height="13"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+          >
+            <ellipse cx="10" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="22" cy="11" rx="3.2" ry="3.6" />
+            <ellipse cx="7" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="16" rx="2.8" ry="3.3" />
+            <ellipse cx="25" cy="18" rx="2.4" ry="3" />
+            <ellipse cx="16" cy="24" rx="4.2" ry="3.4" />
+          </svg>
+        </span>
+        <span class="brand__name">PetBuddy</span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        aria-label="메뉴 열기"
+      >
+        <span class="menu-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="nav-panel" id="primary-nav">
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="walk.html" class="nav__link">지금 산책</a>
+          <a href="matching.html" class="nav__link">매칭 찾기</a>
+          <a
+            href="community.html"
+            class="nav__link is-active"
+            aria-current="page"
+            >커뮤니티</a
+          >
+          <a href="profile.html" class="nav__link">내 프로필</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="community-layout">
+      <div class="community-main">
+        <header class="community-hero">
+          <div class="community-hero__titles">
+            <h1 class="community-title">공개 모임</h1>
+            <p class="community-subtitle">
+              누구나 참여할 수 있는 산책 모임이에요
+            </p>
+          </div>
+          <button type="button" class="community-create-btn">
+            + 모임 만들기
+          </button>
+        </header>
+
+        <div class="community-filters" role="group" aria-label="모임 필터">
+          <button type="button" class="community-chip is-active">전체</button>
+          <button type="button" class="community-chip">오늘</button>
+          <button type="button" class="community-chip">참여 가능</button>
+          <button type="button" class="community-chip">소형견</button>
+          <button type="button" class="community-chip">중·대형견</button>
+          <button type="button" class="community-chip">자유참여</button>
+          <button type="button" class="community-chip">승인형</button>
+          <button type="button" class="community-chip">2km 이내</button>
+        </div>
+
+        <h2 class="community-section-title">오늘의 모임 · <span>6개</span></h2>
+
+        <ul class="community-card-grid">
+          <li>
+            <article class="cm-card">
+              <div class="cm-card__head">
+                <div
+                  class="cm-card__icon cm-card__icon--leaf"
+                  aria-hidden="true"
+                >
+                  🍃
+                </div>
+                <span class="cm-card__badge cm-card__badge--soon">곧 시작</span>
+              </div>
+              <h3 class="cm-card__name">한강공원 저녁 산책</h3>
+              <p class="cm-card__meta">오늘 18:00 · 여의도 한강공원</p>
+              <div class="cm-card__tags">
+                <span class="cm-card__tag">소형 환영</span>
+                <span class="cm-card__tag">0.8km</span>
+                <span class="cm-card__tag">승인형</span>
+              </div>
+              <div class="cm-card__foot">
+                <div class="cm-card__bar" aria-hidden="true">
+                  <span class="cm-card__bar-fill" style="width: 60%"></span>
+                </div>
+                <span class="cm-card__count" aria-label="현재 3명, 정원 5명"
+                  >3/5명</span
+                >
+              </div>
+              <button type="button" class="cm-card__action">참여 신청</button>
+            </article>
+          </li>
+          <li>
+            <article class="cm-card">
+              <div class="cm-card__head">
+                <div
+                  class="cm-card__icon cm-card__icon--run"
+                  aria-hidden="true"
+                >
+                  🏃
+                </div>
+                <span class="cm-card__badge cm-card__badge--live">진행중</span>
+              </div>
+              <h3 class="cm-card__name">성수동 가벼운 달리기</h3>
+              <p class="cm-card__meta">오늘 17:30 · 성수연방 앞</p>
+              <div class="cm-card__tags">
+                <span class="cm-card__tag">중형 환영</span>
+                <span class="cm-card__tag">1.2km</span>
+                <span class="cm-card__tag">자유참여</span>
+              </div>
+              <div class="cm-card__foot">
+                <div class="cm-card__bar" aria-hidden="true">
+                  <span class="cm-card__bar-fill" style="width: 50%"></span>
+                </div>
+                <span class="cm-card__count" aria-label="현재 2명, 정원 4명"
+                  >2/4명</span
+                >
+              </div>
+              <button type="button" class="cm-card__action">합류하기</button>
+            </article>
+          </li>
+          <li>
+            <article class="cm-card">
+              <div class="cm-card__head">
+                <div
+                  class="cm-card__icon cm-card__icon--dog"
+                  aria-hidden="true"
+                >
+                  🐕
+                </div>
+                <span class="cm-card__badge cm-card__badge--open"
+                  >참여가능</span
+                >
+              </div>
+              <h3 class="cm-card__name">반포천 라이트 산책단</h3>
+              <p class="cm-card__meta">오늘 16:00 · 반포천 출발</p>
+              <div class="cm-card__tags">
+                <span class="cm-card__tag">난이도 낮음</span>
+                <span class="cm-card__tag">0.5km</span>
+                <span class="cm-card__tag">자유참여</span>
+              </div>
+              <div class="cm-card__foot">
+                <div class="cm-card__bar" aria-hidden="true">
+                  <span class="cm-card__bar-fill" style="width: 50%"></span>
+                </div>
+                <span class="cm-card__count" aria-label="현재 4명, 정원 8명"
+                  >4/8명</span
+                >
+              </div>
+              <button type="button" class="cm-card__action">참여 신청</button>
+            </article>
+          </li>
+          <li>
+            <article class="cm-card">
+              <div class="cm-card__head">
+                <div
+                  class="cm-card__icon cm-card__icon--moon"
+                  aria-hidden="true"
+                >
+                  🌙
+                </div>
+                <span class="cm-card__badge cm-card__badge--closed">마감</span>
+              </div>
+              <h3 class="cm-card__name">망원 한강 야간 느린 산책</h3>
+              <p class="cm-card__meta">오늘 20:00 · 망원한강공원</p>
+              <div class="cm-card__tags">
+                <span class="cm-card__tag">소형 환영</span>
+                <span class="cm-card__tag">1.4km</span>
+                <span class="cm-card__tag">승인형</span>
+              </div>
+              <div class="cm-card__foot">
+                <div class="cm-card__bar" aria-hidden="true">
+                  <span class="cm-card__bar-fill" style="width: 100%"></span>
+                </div>
+                <span class="cm-card__count" aria-label="현재 6명, 정원 6명"
+                  >6/6명</span
+                >
+              </div>
+              <button type="button" class="cm-card__action" disabled>
+                마감
+              </button>
+            </article>
+          </li>
+          <li>
+            <article class="cm-card">
+              <div class="cm-card__head">
+                <div
+                  class="cm-card__icon cm-card__icon--leaf"
+                  aria-hidden="true"
+                >
+                  🌿
+                </div>
+                <span class="cm-card__badge cm-card__badge--open"
+                  >참여가능</span
+                >
+              </div>
+              <h3 class="cm-card__name">양재천 토요 아침 모임</h3>
+              <p class="cm-card__meta">오늘 09:00 · 양재천 입구 광장</p>
+              <div class="cm-card__tags">
+                <span class="cm-card__tag">대형 가능</span>
+                <span class="cm-card__tag">2.0km</span>
+                <span class="cm-card__tag">자유참여</span>
+              </div>
+              <div class="cm-card__foot">
+                <div class="cm-card__bar" aria-hidden="true">
+                  <span class="cm-card__bar-fill" style="width: 33%"></span>
+                </div>
+                <span class="cm-card__count" aria-label="현재 4명, 정원 12명"
+                  >4/12명</span
+                >
+              </div>
+              <button type="button" class="cm-card__action">참여 신청</button>
+            </article>
+          </li>
+          <li>
+            <article class="cm-card">
+              <div class="cm-card__head">
+                <div
+                  class="cm-card__icon cm-card__icon--flame"
+                  aria-hidden="true"
+                >
+                  🔥
+                </div>
+                <span class="cm-card__badge cm-card__badge--soon">곧 시작</span>
+              </div>
+              <h3 class="cm-card__name">뚝섬 댕댕이 놀이터 근처 짧은 산책</h3>
+              <p class="cm-card__meta">오늘 14:40 · 서울숲 근처</p>
+              <div class="cm-card__tags">
+                <span class="cm-card__tag">소형 환영</span>
+                <span class="cm-card__tag">0.9km</span>
+                <span class="cm-card__tag">승인형</span>
+              </div>
+              <div class="cm-card__foot">
+                <div class="cm-card__bar" aria-hidden="true">
+                  <span class="cm-card__bar-fill" style="width: 71%"></span>
+                </div>
+                <span class="cm-card__count" aria-label="현재 5명, 정원 7명"
+                  >5/7명</span
+                >
+              </div>
+              <button type="button" class="cm-card__action">합류하기</button>
+            </article>
+          </li>
+        </ul>
+      </div>
+
+      <aside class="community-aside" aria-labelledby="popular-title">
+        <section class="community-panel">
+          <h2 id="popular-title" class="community-panel__title">
+            인기 모임 Top 5
+          </h2>
+          <ul class="cm-top-list">
+            <li class="cm-top-item">
+              <span class="cm-top-item__rank">1</span>
+              <div class="cm-top-item__body">
+                <p class="cm-top-item__name">안양천 새벽 런앤워크 크루</p>
+                <p class="cm-top-item__meta">매주 토·일 7시 · 892명 참여중</p>
+              </div>
+            </li>
+            <li class="cm-top-item">
+              <span class="cm-top-item__rank">2</span>
+              <div class="cm-top-item__body">
+                <p class="cm-top-item__name">석촌호수 라이크 산책모임</p>
+                <p class="cm-top-item__meta">수·금 저녁 19시 · 421명 참여중</p>
+              </div>
+            </li>
+            <li class="cm-top-item">
+              <span class="cm-top-item__rank">3</span>
+              <div class="cm-top-item__body">
+                <p class="cm-top-item__name">판교 반려 친목 산책</p>
+                <p class="cm-top-item__meta">주말 오전 · 356명 참여중</p>
+              </div>
+            </li>
+            <li class="cm-top-item">
+              <span class="cm-top-item__rank">4</span>
+              <div class="cm-top-item__body">
+                <p class="cm-top-item__name">목동 까치산 둘레 산책</p>
+                <p class="cm-top-item__meta">매주 금 저녁 · 208명 참여중</p>
+              </div>
+            </li>
+            <li class="cm-top-item">
+              <span class="cm-top-item__rank">5</span>
+              <div class="cm-top-item__body">
+                <p class="cm-top-item__name">청계천 퇴근 후 짧게 걷기</p>
+                <p class="cm-top-item__meta">평일 18시 30분 · 171명 참여중</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="community-panel" aria-labelledby="mine-title">
+          <h2 id="mine-title" class="community-panel__title">
+            내가 참여 중인 모임
+          </h2>
+          <div class="cm-mine-card">
+            <h3 class="cm-mine-card__title">한강공원 저녁 산책</h3>
+            <div class="cm-mine-card__row">
+              <p class="cm-mine-card__time">오늘 18:00 · 여의도</p>
+              <span class="cm-mine-card__status">참여 확정</span>
+            </div>
+          </div>
+          <div class="cm-mine-card">
+            <h3 class="cm-mine-card__title">성수동 가벼운 달리기</h3>
+            <div class="cm-mine-card__row">
+              <p class="cm-mine-card__time">오늘 17:30 · 성수연방</p>
+              <span class="cm-mine-card__status">참여 확정</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
