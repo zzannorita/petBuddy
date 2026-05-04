@@ -391,24 +391,32 @@ body {
 
 /* Hero — 다크 차콜 + 은은한 포인트(최초 랜딩 분위기) */
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(2.75rem, 6vw, 5rem) var(--page-inline)
     clamp(3.25rem, 7vw, 5.5rem);
   color: #fafafa;
-  background-color: #1c1f1d;
+  background-color: #141716;
   background-image:
     radial-gradient(
       ellipse 110% 55% at 50% -8%,
-      rgba(40, 167, 121, 0.16),
+      rgba(40, 167, 121, 0.14),
       transparent 58%
     ),
     radial-gradient(
       ellipse 70% 45% at 102% 18%,
-      rgba(40, 167, 121, 0.09),
+      rgba(40, 167, 121, 0.07),
       transparent 52%
     ),
     radial-gradient(
       ellipse 55% 40% at -5% 75%,
-      rgba(40, 167, 121, 0.06),
+      rgba(40, 167, 121, 0.05),
       transparent 50%
     ),
     linear-gradient(
@@ -421,7 +429,86 @@ body {
     );
 }
 
+/* 흐르는 오로라 띠(좌→우) + 느린 글로우 이동 — 배경만 움직임 */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -15% -40%;
+  z-index: 0;
+  background-image: linear-gradient(
+    95deg,
+    transparent 0%,
+    transparent 18%,
+    rgba(26, 46, 42, 0.55) 32%,
+    rgba(40, 167, 121, 0.12) 42%,
+    rgba(94, 235, 196, 0.09) 50%,
+    rgba(40, 167, 121, 0.1) 58%,
+    rgba(22, 56, 48, 0.45) 68%,
+    transparent 82%,
+    transparent 100%
+  );
+  background-size: 160% 100%;
+  background-position: 0% 50%;
+  opacity: 0.85;
+  animation: hero-bg-sweep 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 55% 90% at 20% 50%,
+    rgba(94, 235, 196, 0.07) 0%,
+    transparent 62%
+  );
+  pointer-events: none;
+  animation: hero-bg-glow-drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes hero-bg-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes hero-bg-glow-drift {
+  0% {
+    transform: translateX(-12%) scale(1);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateX(14%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+
+  .hero::before {
+    background-position: 35% 50%;
+    opacity: 0.55;
+  }
+
+  .hero::after {
+    transform: none;
+    opacity: 0.75;
+  }
+}
+
 .hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   max-width: 72rem;
   margin: 0 auto;
   display: grid;
@@ -677,6 +764,11 @@ body {
 }
 
 .feature-cards {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(2.75rem, 6vw, 4.25rem) var(--page-inline);
   padding-top: clamp(2.25rem, 5vw, 3.5rem);
   background: var(--bands-bg-gradient);
@@ -684,6 +776,7 @@ body {
 }
 
 .feature-cards__inner {
+  width: 100%;
   max-width: 72rem;
   margin: 0 auto;
   display: grid;
@@ -799,23 +892,80 @@ body {
   color: #237a61;
 }
 
+/* 홈 풀페이지: 바로가기 카드 세로 여유 */
+.feature-cards.home-fullPage .feature-cards__inner {
+  gap: clamp(1.15rem, 3.2vw, 1.65rem);
+}
+
+.feature-cards.home-fullPage .feature-card__link {
+  min-height: 11.5rem;
+  padding: 1.85rem clamp(1.25rem, 3.2vw, 1.85rem);
+}
+
+.feature-cards.home-fullPage .feature-card__icon {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
+}
+
+.feature-cards.home-fullPage .feature-card__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature-cards.home-fullPage .feature-card__title {
+  margin: 0 0 0.6rem;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.feature-cards.home-fullPage .feature-card__desc {
+  margin: 0 0 1.35rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.feature-cards.home-fullPage .feature-card__cta {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 720px) {
+  .feature-cards.home-fullPage .feature-card__link {
+    min-height: 12.25rem;
+    padding: 2rem clamp(1.35rem, 2.5vw, 1.95rem);
+  }
+}
+
 /* 오늘의 모임 — 하단 섹션, 밝은 배경 */
 .today-meetings {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: clamp(2rem, 4vw, 3rem) var(--page-inline) clamp(2.75rem, 6vw, 4rem);
   background: var(--bands-bg-gradient);
   background-color: var(--bands-bg-solid);
 }
 
 .today-meetings__inner {
+  width: 100%;
   max-width: 72rem;
   margin: 0 auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
 }
 
 .today-meetings__heading {
-  margin: 0 0 1.25rem;
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  margin: 0 0 1.65rem;
+  font-size: clamp(1.2rem, 2.75vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
+  line-height: 1.35;
   color: var(--text-primary);
 }
 
@@ -825,7 +975,7 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: clamp(0.85rem, 2vw, 1.15rem);
 }
 
 .today-meetings__list > li {
@@ -835,8 +985,9 @@ body {
 .meeting-row {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  padding: 1rem clamp(1rem, 2.8vw, 1.35rem);
+  gap: 1rem;
+  min-height: 4.75rem;
+  padding: 1.15rem clamp(1.1rem, 2.8vw, 1.5rem);
   border-radius: 14px;
   background: #ffffff;
   border: 1px solid #ebeef0;
@@ -846,11 +997,11 @@ body {
 .meeting-row__icon {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   flex-shrink: 0;
-  border-radius: 12px;
-  font-size: 1.38rem;
+  border-radius: 13px;
+  font-size: 1.5rem;
   line-height: 1;
 }
 
@@ -872,17 +1023,18 @@ body {
 }
 
 .meeting-row__title {
-  margin: 0 0 0.28rem;
-  font-size: 0.9625rem;
+  margin: 0 0 0.35rem;
+  font-size: 1.025rem;
   font-weight: 700;
   letter-spacing: -0.025em;
+  line-height: 1.35;
   color: var(--text-primary);
 }
 
 .meeting-row__meta {
   margin: 0;
-  font-size: 0.8rem;
-  line-height: 1.45;
+  font-size: 0.875rem;
+  line-height: 1.55;
   color: #6f7874;
 }
 
@@ -892,9 +1044,9 @@ body {
 
 .meeting-badge {
   flex-shrink: 0;
-  padding: 0.38rem 0.78rem;
+  padding: 0.48rem 0.9rem;
   border-radius: 999px;
-  font-size: 0.7425rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -959,9 +1111,12 @@ body {
   align-items: start;
 }
 
+/* 좁은 화면: 브랜드는 위 전체 너비, 서비스·안내·회사는 한 행(3열) */
 @media (max-width: 960px) {
   .site-footer__inner {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: clamp(0.5rem, 2vw, 1rem);
+    row-gap: clamp(1rem, 2.5vw, 1.35rem);
   }
 
   .site-footer__brand-col {
@@ -969,9 +1124,22 @@ body {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 420px) {
   .site-footer__inner {
-    grid-template-columns: 1fr;
+    column-gap: 0.35rem;
+  }
+
+  .site-footer__nav-title {
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .site-footer__links a {
+    font-size: 0.72rem;
+  }
+
+  .site-footer__links li {
+    margin: 0.2rem 0;
   }
 }
 
