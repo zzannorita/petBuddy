@@ -1,3 +1,7 @@
+import ReactGA from 'react-ga4';
+
+ReactGA.initialize('G-J7CMB03KZ6');
+
 (function () {
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.menu-toggle');

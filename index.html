@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="page-landing">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,20 @@
     />
     <link rel="stylesheet" href="css/main.css" />
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-J7CMB03KZ6"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
+    gtag('config', 'G-J7CMB03KZ6');
+  </script>
   <body>
     <header class="site-header site-header--sticky-main">
       <a href="index.html" class="brand" aria-label="PetBuddy 홈">
@@ -75,8 +88,48 @@
       </div>
     </header>
 
+    <aside class="landing-nav" id="landing-nav" aria-label="랜딩 섹션 이동">
+      <ul class="landing-nav__list">
+        <li>
+          <button
+            type="button"
+            class="landing-nav__btn is-active"
+            data-landing-index="0"
+            aria-current="true"
+            aria-label="메인 섹션으로 이동"
+          >
+            <span class="landing-nav__dot" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="landing-nav__btn"
+            data-landing-index="1"
+            aria-label="바로가기 섹션으로 이동"
+          >
+            <span class="landing-nav__dot" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="landing-nav__btn"
+            data-landing-index="2"
+            aria-label="오늘의 모임 섹션으로 이동"
+          >
+            <span class="landing-nav__dot" aria-hidden="true"></span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+
     <main id="main-content">
-      <section class="hero" aria-labelledby="hero-heading">
+      <section
+        class="hero landing-scroll__panel is-landing-active"
+        id="landing-hero"
+        aria-labelledby="hero-heading"
+      >
         <div class="hero__inner">
           <div class="hero__copy">
             <div class="hero__badge">
@@ -149,7 +202,10 @@
         </div>
       </section>
 
-      <section class="feature-cards home-fullPage">
+      <section
+        class="feature-cards landing-scroll__panel"
+        id="landing-services"
+      >
         <h2 class="feature-cards__sr-title">바로 가기 서비스</h2>
         <div class="feature-cards__inner">
           <article class="feature-card feature-card--walk">
@@ -255,7 +311,11 @@
         </div>
       </section>
 
-      <section class="today-meetings" aria-labelledby="today-meetings-title">
+      <section
+        class="today-meetings landing-scroll__panel"
+        id="landing-meetings"
+        aria-labelledby="today-meetings-title"
+      >
         <div class="today-meetings__inner">
           <h2 id="today-meetings-title" class="today-meetings__heading">
             오늘의 모임
@@ -503,5 +563,6 @@
     </footer>
 
     <script src="js/main.js" defer></script>
+    <script src="js/landing-scroll.js" defer></script>
   </body>
 </html>
